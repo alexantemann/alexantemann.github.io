@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Masonry</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+    <style>
+        
+        /*FONTS*/
+        
+        .orbitron > {
+            font-family: "Orbitron", serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+        }
+        
+        .kanit-light {
+            font-family: "Kanit", serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+        
+        .montserrat-l> {
+            font-family: "Montserrat", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        .gilda-display-regular {
+            font-family: "Gilda Display", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        
+        
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scrollbar-gutter: stable both-edges;
+        }
+        
+
+        
+        
+        
+        body {
+            position:relative;
+            margin: 0;
+            padding:0;
+            background-color: var(--bg-color);
+            color: #fafaf9;
+            font-family: kanit;
+            
+            --card-padding: 10px;
+            --card-rounded: 0px;
+            --bg-color: #f2f2f2;
+            --text-bg-color: #0c0c0c;
+        }
+        
+        H1 {
+            margin:auto;
+            font-size: clamp(2rem,8vw,8rem);
+            text-align: center;
+            color: var(--text-bg-color);
+            background-color: var(--bg-color);
+            padding: clamp(1.5rem,5vw,4rem);
+            font-family: Georgia;
+            font-weight: 300;
+            
+            letter-spacing: 5px;
+        }
+        
+        
+        main {
+            padding: 60px;
+        }
+        
+        #gallery {
+            display: grid;
+            max-width: 1400px;
+            margin: auto;
+            column-gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(max(270px, 30%), 1fr));
+            grid-template-rows: 5px;
+        }
+        
+        #gallery > div {
+            overflow: hidden;
+        }
+        
+        #gallery > div > div {
+            height: fit-content;
+            color: var(--text-bg-color);
+            padding: 0em;
+            
+            border-bottom: 50px solid transparent;
+        }
+        
+        #gallery img {
+            display: block;
+            width: 100%; /* Adjust width to fit the container */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Optional: ensures the image fills the container nicely */
+            border-radius: var(--card-rounded); /* Optional: matches card styling */
+            transition: transform 0.5s ease;
+        }
+        
+        #gallery img:hover {
+            transform: scale(1.01);
+            transition: transform 0.5s;
+        }
+        
+        
+        
+        
+        
+        #gallery p {
+            
+            color: var(--text-bg-color);
+            font-size:100%;
+            margin:0;
+            font-family:Gilda Display;
+            font-weight: 550;
+        }
+        
+        
+        #gallery h2 {
+            font-size: 105%;
+            margin-top: 20px;
+            padding-top: 5px;
+            margin-bottom: 1px;
+            font-family: Montserrat;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+        
+        
+        
+        
+        /*FILTER*/
+        
+        
+        header {
+            position: sticky;
+            top: 0;
+            z-index:10;
+            background-color: var(--bg-color);
+            display:flex;
+            flex-wrap: wrap;
+            padding-top: 0.5rem;
+            padding-bottom: 1rem;
+            justify-content: center;
+            gap: 0.5rem clamp(0rem , 1.5vw, 2rem);
+            color: var(--text-bg-color);
+            border-bottom: 1px solid #ddd;
+            text-transform: uppercase;
+            font-family: montserrat;
+            font-weight: 500;
+            letter-spacing: -1px;
+            
+            
+            label:has(input[type="radio"]) {
+                transition: transform 0.2s;
+                text-align:center;
+                display: block;
+                position: relative;
+                padding-left: 0.9rem;
+                padding-right: 0.9rem;
+                
+                input[type="radio"] {
+                    position: absolute;
+                    opacity: 0;
+                    width:1px;
+                    height:1px;
+                }
+            }
+            
+        }
+        
+        
+        
+        
+        
+        header label::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; /* Adjusts the offset from the text */
+            left: 50%;
+            width: 0;
+            height: 3px; /* Thickness */
+            background-color: var(--text-bg-color);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+        
+        header label:has(input[type="radio"]:checked)::after,
+        header label:has(input[type="radio"]:focus)::after,
+        header label:hover::after {
+            width: min(70%, 150px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        
+        
+    </style>
+</head>
+
+<body>
+    
+    <h1>MEINE PROJEKTE</h1>
+    
+    <header>
+        <label><input value="all" name="filter" type="radio" checked>Alle</label>
+        <label><input value="3D" name="filter" type="radio">3D</label>
+        <label><input value="Video Editing" name="filter" type="radio">Video Editing</label>
+        <label><input value="Grafikdesign" name="filter" type="radio">Grafikdesign</label>
+        <label><input value="Video" name="filter" type="radio">Video</label>
+        <label><input value="Slideshow" name="filter" type="radio">Slideshow</label>
+        <label><input value="Still" name="filter" type="radio">Still</label>
+    </header>
+    
+    
+    <main>
+        <article id="gallery">
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/GseAuYn.jpeg" alt="Das Ei - Eine Kurzgeschichten-Verfilmung">
+                    <h2>Das Ei - Eine Kurzgeschichten-Verfilmung</h2>
+                    <p>
+                        <span class="tag">3D</span>&#x30FB;<span class="tag">Video Editing</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="card-date">Januar 2023</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/zvZ1a7F.png" alt="Berufsorientierung Schaubild">
+                    <h2>Berufsorientierung Schaubild</h2>
+                    <p>
+                        <span class="tag">3D</span>&#x30FB;<span class="tag">Grafikdesign</span>&#x30FB;<span class="tag">Still</span>&#x30FB;<span class="card-date">November 2023</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/VvHV8HK.png" alt="Documenta 15 - Am Ziel vorbei?">
+                    <h2>Documenta 15 - Am Ziel vorbei?</h2>
+                    <p>
+                        <span class="tag">Video Editing</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="card-date">September 2022</span>
+                    </p>
+                </div>
+            </div>
+            
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/AwlBwtd.png" alt="EARTH 2090 - an art project">
+                    <h2>EARTH 2090 - an art project</h2>
+                    <p>
+                        <span class="tag">3D</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="card-date">Juli 2022</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/iXFp6VW.jpeg" alt="Moving On">
+                    <h2>Moving On</h2>
+                    <p>
+                        <span class="tag">3D</span>&#x30FB;<span class="tag">Still</span>&#x30FB;<span class="card-date">Oktober 2023</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/MPZVE3U.jpeg" alt="How To Build Up Hype For A Show - Video Essay">
+                    <h2>How To Build Up Hype For A Show - Video Essay</h2>
+                    <p>
+                        <span class="tag">3D</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="card-date">Juni 2022</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/ybkN1Zw.jpeg" alt="Bogenschießen Erklärvideo">
+                    <h2>Bogenschießen Erklärvideo</h2>
+                    <p>
+                        <span class="tag">Video Editing</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="card-date">Dezember 2020</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/eSH8zBJ.jpeg" alt="Central Cee Poster">
+                    <h2>Central Cee Poster</h2>
+                    <p>
+                        <span class="tag">Grafikdesign</span>&#x30FB;<span class="card-date">Januar 2024</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/eedvaWW.png" alt="Wandbild für die Staatsanwaltschaft Bremen">
+                    <h2>Wandbild für die Staatsanwaltschaft Bremen</h2>
+                    <p>
+                        <span class="tag">Grafikdesign</span>&#x30FB;<span class="card-date">Februar 2024</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/JXI1fCG.jpeg" alt="ABI Pulli Nintendo">
+                    <h2>ABI Pulli Nintendo</h2>
+                    <p>
+                        <span class="tag">Grafikdesign</span>&#x30FB;<span class="card-date">Januar 2024</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/1XgUoHO.jpeg" alt="ABI Bag Nintendo">
+                    <h2>ABI Bag Nintendo</h2>
+                    <p>
+                        <span class="tag">Grafikdesign</span>&#x30FB;<span class="card-date">April 2024</span>
+                    </p>
+                </div>
+            </div>
+            
+            
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/Ctmouuq.jpeg" alt="Zorro Z">
+                    <h2>Zorro Z</h2>
+                    <p>
+                        <span class="tag">3D</span>&#x30FB;<span class="tag">Still</span>&#x30FB;<span class="card-date">Juli 2023</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/AH861QD.png" alt="Die Epochen Romantik, Biedermeier & Vormärz">
+                    <h2>Die Epochen Romantik, Biedermeier & Vormärz</h2>
+                    <p>
+                        <span class="tag">Grafikdesign</span>&#x30FB;<span class="tag">Slideshow</span>&#x30FB;<span class="card-date">November 2022</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/Ia0sptn.jpeg" alt="Im Spiegel - 2D/3D Animation">
+                    <h2>Im Spiegel - 2D/3D Animation</h2>
+                    <p>
+                        <span class="tag">3D</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="card-date">Februar 2022</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/V9jNZzQ.png" alt="Abyss">
+                    <h2>Abyss</h2>
+                    <p>
+                        <span class="tag">3D</span>&#x30FB;<span class="tag">Still</span>&#x30FB;<span class="card-date">März 2024</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/rRZezxl.png" alt="Keema vs Meeru Fight">
+                    <h2>Keema vs Meeru Fight</h2>
+                    <p>
+                        <span class="tag">3D</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="card-date">April 2022</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <img src="https://i.imgur.com/FxULeCE.jpeg" alt="Valérie Pécresse - Présentation">
+                    <h2>Valérie Pécresse - Présentation </h2>
+                    <p>
+                        <span class="tag">Grafikdesign</span>&#x30FB;<span class="tag">Slideshow</span>&#x30FB;<span class="card-date">März 2022</span>
+                    </p>
+                </div>
+            </div>
+            
+        </article>
+        
+    </article>
+    
+    
+</main>
+<script>
+    
+    const VRES= 5; // rem: must match css grid-template-rows TODO? read css
+    const VGAP= 10;
+    const gallery= document.getElementById("gallery");
+    const heightMap= new Map();
+    new ResizeObserver(()=>{
+        let update= false;
+        for(let elt of gallery.children) {
+            const h= elt.firstElementChild.getBoundingClientRect().height;
+            if(((h/VRES)|0)!==(heightMap.get(elt)/VRES)|0) {
+                heightMap.set(elt,h);
+                update= true;
+            }
+        }
+        if(!update) return;
+        for(let [elt,h] of heightMap.entries()) {
+            let span= (h/VRES)|0;
+            elt.style.gridRow= "span "+ span;
+            elt.height= (span*VRES)+"px";
+        }
+    }).observe(gallery)
+    
+    /*FILTER BUTTONS*/
+    
+    document.querySelector("header").addEventListener("change", (event) => {
+        const scrollY= window.scrollY;
+        
+        const filter = event.target.value.toLowerCase();
+        for(const item of gallery.children) {
+            item.hidden = filter !== "all" &&
+            !Array.prototype.find.call(
+            item.querySelectorAll("span.tag"),
+            (span) => span.innerText.toLowerCase()===filter
+            );
+        }
+        window.scrollTo(0,scrollY);
+    });
+    
+    
+</script>
+</body>
+
+</html>

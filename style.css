@@ -89,11 +89,12 @@
         }
         
         #gallery > div > div {
+            
             height: fit-content;
             color: var(--text-bg-color);
             padding: 0em;
             
-            border-bottom: 50px solid transparent;
+            
         }
         
         #gallery img {
@@ -134,6 +135,15 @@
             text-transform: capitalize;
         }
         
+
+
+        #gallery a {
+            text-decoration: none;
+            color: var(--text-bg-color);
+            display: block; /* Make the link behave like a block element */
+
+            border-bottom: 50px solid transparent;
+        }
         
         
         
@@ -203,3 +213,38 @@
         
         
         
+
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 100; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }

@@ -1,213 +1,387 @@
 
 
 
-        
-        /*FONTS*/
-        
-        .orbitron > {
-            font-family: "Orbitron", serif;
-            font-optical-sizing: auto;
-            font-weight: 900;
-            font-style: normal;
-        }
-        
-        .kanit-light {
-            font-family: "Kanit", serif;
-            font-weight: 300;
-            font-style: normal;
-        }
-        
-        .montserrat-l> {
-            font-family: "Montserrat", serif;
-            font-optical-sizing: auto;
-            font-weight: 500;
-            font-style: normal;
-        }
-        
-        .gilda-display-regular {
-            font-family: "Gilda Display", serif;
-            font-weight: 400;
-            font-style: normal;
-        }
-        
-        
-        
-        * {
-            box-sizing: border-box;
-        }
-        html {
-            scrollbar-gutter: stable both-edges;
-        }
-        
 
-        
-        
-        
-        body {
-            position:relative;
-            margin: 0;
-            padding:0;
-            background-color: var(--bg-color);
-            color: #fafaf9;
-            font-family: kanit;
-            
-            --card-padding: 10px;
-            --card-rounded: 0px;
-            --bg-color: #f2f2f2;
-            --text-bg-color: #0c0c0c;
-        }
-        
-        H1 {
-            margin:auto;
-            font-size: clamp(2rem,8vw,8rem);
-            text-align: center;
-            color: var(--text-bg-color);
-            background-color: var(--bg-color);
-            padding: clamp(1.5rem,5vw,4rem);
-            font-family: Georgia;
-            font-weight: 300;
-            
-            letter-spacing: 5px;
-        }
-        
-        
-        main {
-            padding: 60px;
-        }
-        
-        #gallery {
-            display: grid;
-            max-width: 1400px;
-            margin: auto;
-            column-gap: 2rem;
-            grid-template-columns: repeat(auto-fill, minmax(max(270px, 30%), 1fr));
-            grid-template-rows: 5px;
-        }
-        
-        #gallery > div {
-            overflow: hidden;
-        }
-        
-        #gallery > div > div {
-            
-            height: fit-content;
-            color: var(--text-bg-color);
-            padding: 0em;
-            
-            
-        }
-        
-        #gallery img {
-            display: block;
-            width: 100%; /* Adjust width to fit the container */
-            height: auto; /* Maintain aspect ratio */
-            object-fit: cover; /* Optional: ensures the image fills the container nicely */
-            border-radius: var(--card-rounded); /* Optional: matches card styling */
-            transition: transform 0.5s ease;
-        }
-        
-        #gallery img:hover {
-            transform: scale(1.01);
-            transition: transform 0.5s;
-        }
-        
-        
-        
-        
-        
-        #gallery p {
-            
-            color: var(--text-bg-color);
-            font-size:100%;
-            margin:0;
-            font-family:Gilda Display;
-            font-weight: 550;
-        }
-        
-        
-        #gallery h2 {
-            font-size: 105%;
-            margin-top: 20px;
-            padding-top: 5px;
-            margin-bottom: 1px;
-            font-family: Montserrat;
-            font-weight: 500;
-            text-transform: capitalize;
-        }
-        
+/*FONTS*/
+
+.orbitron > {
+    font-family: "Orbitron", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.kanit-light {
+    font-family: "Kanit", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.montserrat-l> {
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.gilda-display-regular {
+    font-family: "Gilda Display", serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 
-        #gallery a {
-            text-decoration: none;
-            color: var(--text-bg-color);
-            display: block; /* Make the link behave like a block element */
 
-            border-bottom: 50px solid transparent;
-        }
+* {
+    box-sizing: border-box;
+}
+html {
+    scrollbar-gutter: stable both-edges;
+}
+
+
+
+
+
+body {
+    position:relative;
+    margin: 0;
+    padding:0;
+    background-color: var(--bg-color);
+    color: #fafaf9;
+    font-family: kanit;
+    
+    --card-padding: 10px;
+    --card-rounded: 0px;
+    --bg-color: #f2f2f2;
+    --text-bg-color: #0c0c0c;
+}
+
+H1 {
+    margin:auto;
+    font-size: clamp(2rem,8vw,8rem);
+    text-align: center;
+    color: var(--text-bg-color);
+    background-color: var(--bg-color);
+    padding: clamp(1.5rem,5vw,4rem);
+    font-family: Georgia;
+    font-weight: 300;
+    
+    letter-spacing: 5px;
+}
+
+
+main {
+    padding-top: 25px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 60px;
+}
+
+#gallery {
+    display: grid;
+    max-width: 1400px;
+    margin: auto;
+    column-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(max(270px, 30%), 1fr));
+    grid-template-rows: 5px;
+}
+
+#gallery > div {
+    overflow: hidden;
+}
+
+#gallery > div > div {
+    
+    height: fit-content;
+    color: var(--text-bg-color);
+    padding: 0em;
+    
+    
+}
+
+#gallery img {
+    display: block;
+    width: 100%; /* Adjust width to fit the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Optional: ensures the image fills the container nicely */
+    border-radius: var(--card-rounded); /* Optional: matches card styling */
+    filter: grayscale(20%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+#gallery img:hover {
+    transform: scale(1.01);
+    filter: grayscale(0%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+
+
+
+
+#gallery p {
+    
+    color: var(--text-bg-color);
+    font-size:100%;
+    margin:0;
+    font-family:Gilda Display;
+    font-weight: 550;
+}
+
+
+#gallery h2 {
+    font-size: 105%;
+    margin-top: 20px;
+    padding-top: 5px;
+    margin-bottom: 1px;
+    font-family: Montserrat;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+
+
+#gallery a {
+    text-decoration: none;
+    color: var(--text-bg-color);
+    display: block; /* Make the link behave like a block element */
+    
+    border-bottom: 50px solid transparent;
+}
+
+
+
+/*FILTER*/
+
+
+header {
+    position: sticky;
+    top: 0;
+    z-index:10;
+    background-color: var(--bg-color);
+    display:flex;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    justify-content: center;
+    gap: 0.5rem clamp(0rem , 1.5vw, 2rem);
+    color: var(--text-bg-color);
+    border-bottom: 1px solid #ddd;
+    text-transform: uppercase;
+    font-family: montserrat;
+    font-weight: 500;
+    letter-spacing: -1px;
+    
+    
+    & > label {
+        text-align: center;
+        display: block;
+        position: relative;
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
         
-        
-        
-        /*FILTER*/
-        
-        
-        header {
-            position: sticky;
-            top: 0;
-            z-index:10;
-            background-color: var(--bg-color);
-            display:flex;
-            flex-wrap: wrap;
-            padding-top: 0.5rem;
-            padding-bottom: 1rem;
-            justify-content: center;
-            gap: 0.5rem clamp(0rem , 1.5vw, 2rem);
-            color: var(--text-bg-color);
-            border-bottom: 1px solid #ddd;
-            text-transform: uppercase;
-            font-family: montserrat;
-            font-weight: 500;
-            letter-spacing: -1px;
-            
-            
-            label:has(input[type="radio"]) {
-                transition: transform 0.2s;
-                text-align:center;
-                display: block;
-                position: relative;
-                padding-left: 0.9rem;
-                padding-right: 0.9rem;
-                
-                input[type="radio"] {
-                    position: absolute;
-                    opacity: 0;
-                    width:1px;
-                    height:1px;
-                }
-            }
-            
-        }
-        
-        
-        
-        
-        
-        header label::after {
-            content: '';
+        input[type="radio"] {
             position: absolute;
-            bottom: -5px; /* Adjusts the offset from the text */
-            left: 50%;
-            width: 0;
-            height: 3px; /* Thickness */
-            background-color: var(--text-bg-color);
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
+            opacity: 0;
+            width: 1px;
+            height: 1px;
         }
+    }
+    
+    & > label::after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 3.5px; /* Thickness */
+        bottom: -5px; /* Adjusts the offset from the text */
+        left: 0.9rem;
+        right: 0.9rem;
+        background-color: var(--text-bg-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    & > label:hover::after {
+        transform: scaleX(1);
+    }
+    & > label:has(input:checked)::after {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+
+
+/*Pop up*/
+
+#popup {
+    align-content: center;
+    color: var(--text-bg-color);
+    text-align: center;
+    font-family: Montserrat;
+}
+
+#popup h2 {
+    font-family: Montserrat;
+    font-weight: 500;
+    text-transform: capitalize;
+    
+    margin:auto;
+    font-size: 40px;
+    color: var(--text-bg-color);
+    text-decoration: bold;
+}
+
+
+#popup iframe {
+    aspect-ratio: 16 / 9;
+    display: block;
+    margin: 20px auto;
+    border: 0px solid var(--text-bg-color);
+    border-radius: 0px;
+    width: 70%;
+    height: 70%;
+    
+    
+}
+
+#popup img {
+    display: block;
+    margin: 20px auto;
+    border: 0x solid var(--text-bg-color);
+    border-radius: 0px;
+    width: 70%;
+    height: 70% auto;
+    
+    
+}
+
+
+#popup p { /*Tags*/
+    font-family: "Gilda Display", serif;
+    font-size: 1rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+
+#popup >div p { /*Description*/
+    font-family: Montserrat;
+    display: flex;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#popup >div >div { /*Description Expandable*/
+    
+    font-family: Montserrat;
+    padding-left: 20%;
+    padding-right: 20%;
+    font-size: 1.5rem;
+}
+
+em {
+    color: #555;
+    text-decoration: none;
+}
+
+.collapsible {
+    cursor: pointer;
+    margin: 20px 0;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.content {
+    display: none;
+    text-align: center;
+    color: #555;
+}
+
+
+
+@media (max-width: 768px) { 
+
+    #popup h2 {
+        font-size: 40px;
+    }
+
+    #popup > div p {
+        font-size: 1.2rem;
+        padding-left: 10%; 
+        padding-right: 10%;
+    }
+    main {
+        padding-top: 25px;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-bottom: 60px;
+    }
+    #popup img,
+    #popup iframe {
+        width: 70%;
+        height: 70%;
         
-        header label:has(input[type="radio"]:checked)::after,
-        header label:has(input[type="radio"]:focus)::after,
-        header label:hover::after {
-            width: min(70%, 150px);
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    }
+    
+    #popup >div >div { /*Description Expandable*/
+        font-size: 1.2rem;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    
+    #popup p { /*Tags*/
+        font-size: 1rem;
+    }
+
+    em {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #popup h2 {
+        font-size: 30px;
+    }
+
+    #popup > div p {
+        font-size: 1.3rem;
+        padding-left: 5%; 
+        padding-right: 5%;
+    }
+    main {
+        padding-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+
+    #popup p { /*Tags*/
+        font-size: 0.9rem;
+    }
+
+    #popup img,
+    #popup iframe {
         
+        width: 90%;
+        height: 90%;
+        
+    }
+    
+    #popup >div >div { /*Description Expandable*/
+        font-size: 1.3rem;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    em {
+        font-size: 0.9rem;
+    }
+    
+}

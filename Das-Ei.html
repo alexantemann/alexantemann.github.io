@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Masonry</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
@@ -16,34 +16,68 @@
 
 <body>
     
-    <h1>Das Ei</h1>
     
-    <header>
-        
-    </header>
+    
     
     
     <main>
-        <article id="gallery">
+        <article id="popup">
+            
+            <h2>Das Ei - Eine Kurzgeschichten-Verfilmung</h2>
+            <iframe src="https://www.youtube.com/embed/-A3JJyAnZNc" title="Das Ei - Eine Kurzgeschichten-Verfilmung" allowfullscreen></iframe>
+            
+            <p>
+                <span class="tag">3D</span>&#x30FB;<span class="tag">Video Editing</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="card-date">Januar 2023</span>
+            </p>
             
             <div>
-                <div>
-                    <img src="https://i.imgur.com/GseAuYn.jpeg" alt="Das Ei - Eine Kurzgeschichten-Verfilmung">
-                    <h2>Das Ei - Eine Kurzgeschichten-Verfilmung</h2>
-                    <p>
-                        <span class="tag">3D</span>&#x30FB;<span class="tag">Video Editing</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="card-date">Januar 2023</span>
-                    </p>
+                <p>
+                    Eine Adaption der Kurzgeschichte "Das Ei" von Andy Weir, um die Möglichkeiten und Grenzen eines Low-Budget-Films aufzuzeigen.
+                </p>
+                
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
                 </div>
-            </div>
-    
-    
-</main>
-<script>
-    
-    
-    
-    
-</script>
-</body>
+                
+                <div class="content">
+                    Es handelt sich um eine Abitur-relevante Projektarbeit in den Fächern Kunst & Deutsch mit dem Thema „Möglichkeiten und Grenzen eines low-budget Filmes am Beispiel einer Kurzgeschichtenverfilmung“, welche mit 15 Punkte absolviert wurde. Das Werk geschah in Zusammenarbeit mit Lennart Wolf und zudem Karsten Wolf, als Synchronsprecher.
+                </div>
+                
+                
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Siehe 14:52min Arbeitsprozess Video
+                </div>
+                
+                
+                <iframe src="https://www.youtube.com/embed/6etL-awWOrg" title="Progress Video" allowfullscreen></iframe>
+                <em>(Dies ist kein Werk an sich, sondern soll nur den Arbeitsprozess an "Das Ei" darstellen).</em>
 
-</html>
+                <img src="https://i.imgur.com/zvZ1a7F.png" alt="Progress Image">
+                <em>Initial concept art and planning phase.</em>
+                
+            </div>
+            
+            
+            
+            
+        </main>
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

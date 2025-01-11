@@ -35,15 +35,18 @@
 * {
     box-sizing: border-box;
 }
+/*
 html {
-    scrollbar-gutter: stable both-edges;
+    scrollbar-gutter: stable;
 }
-
+*/
 
 
 
 
 body {
+	overflow:hidden;
+	max-height:100dvh;
     position:relative;
     margin: 0;
     padding:0;
@@ -55,6 +58,14 @@ body {
     --card-rounded: 0px;
     --bg-color: #f2f2f2;
     --text-bg-color: #0c0c0c;
+}
+
+
+main {
+    scrollbar-gutter: stable both-edges;
+	position:relative;
+	overflow: auto;
+	max-height:100dvh;
 }
 
 H1 {
@@ -71,14 +82,8 @@ H1 {
 }
 
 
-main {
-    padding-top: 25px;
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-bottom: 60px;
-}
-
 #gallery {
+    padding: 60px;	
     display: grid;
     max-width: 1400px;
     margin: auto;
@@ -87,11 +92,11 @@ main {
     grid-template-rows: 5px;
 }
 
-#gallery > div {
+#gallery > * {
     overflow: hidden;
 }
 
-#gallery > div > div {
+#gallery > * > * {
     
     height: fit-content;
     color: var(--text-bg-color);
@@ -106,14 +111,12 @@ main {
     height: auto; /* Maintain aspect ratio */
     object-fit: cover; /* Optional: ensures the image fills the container nicely */
     border-radius: var(--card-rounded); /* Optional: matches card styling */
-    filter: grayscale(20%);
-    transition: filter 0.5s ease, transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 #gallery img:hover {
     transform: scale(1.01);
-    filter: grayscale(0%);
-    transition: filter 0.5s ease, transform 0.5s ease;
+    transition: transform 0.5s;
 }
 
 
@@ -146,8 +149,8 @@ main {
     text-decoration: none;
     color: var(--text-bg-color);
     display: block; /* Make the link behave like a block element */
-    
-    border-bottom: 50px solid transparent;
+
+    /*border-bottom: 50px solid transparent;*/
 }
 
 
@@ -175,213 +178,101 @@ header {
     
     
     & > label {
-        text-align: center;
+        text-align:center;
         display: block;
         position: relative;
         padding-left: 0.9rem;
         padding-right: 0.9rem;
+        opacity: 1;
         
         input[type="radio"] {
             position: absolute;
             opacity: 0;
-            width: 1px;
-            height: 1px;
+            width:1px;
+            height:1px;
         }
     }
     
-    & > label::after {
-        content: "";
-        position: absolute;
-        display: block;
-        height: 3.5px; /* Thickness */
-        bottom: -5px; /* Adjusts the offset from the text */
-        left: 0.9rem;
-        right: 0.9rem;
-        background-color: var(--text-bg-color);
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-    }
+	& > label::after {
+	  content: "";
+	  position: absolute;
+	  display: block;
+	  height: 3px; /* Thickness */
+	  bottom: -5px; /* Adjusts the offset from the text */
+	    left: 0.9rem;
+		right: 0.9rem;
+	  background-color: var(--text-bg-color);
+	  transform: scaleX(0);
+	  transition: opacity 0.3s ease, transform 0.3s ease;
+	}
+	
+	& > label:hover::after {
+		transform: scaleX(1);
+		opacity:0.5;
+	}
+	& > label:has(input:checked)::after {
+		transform: scaleX(1);
+		opacity:1;		
+	}
     
-    & > label:hover::after {
-        transform: scaleX(1);
-    }
-    & > label:has(input:checked)::after {
-        transform: scaleX(1);
-        opacity: 1;
-    }
+
 }
 
 
 
-/*Pop up*/
-
-#popup {
-    align-content: center;
-    color: var(--text-bg-color);
-    text-align: center;
-    font-family: Montserrat;
-}
-
-#popup h2 {
-    font-family: Montserrat;
-    font-weight: 500;
-    text-transform: capitalize;
+dialog {
+	position:fixed;
+	margin:0;
+	top:0;
+	left:0;
+    bottom:0;
+    right:0;
     
-    margin:auto;
-    font-size: 40px;
-    color: var(--text-bg-color);
-    text-decoration: bold;
-}
-
-
-#popup iframe {
-    aspect-ratio: 16 / 9;
-    display: block;
-    margin: 20px auto;
-    border: 0px solid var(--text-bg-color);
-    border-radius: 0px;
-    width: 70%;
-    height: 70%;
+	min-width:100%;
+	height:100%;
     
+    max-height:100%;
+    max-width:100%;
     
+	border:none;
+	overflow:hidden;
+	padding: 30px;
+	background: transparent;
 }
 
-#popup img {
-    display: block;
-    margin: 20px auto;
-    border: 0x solid var(--text-bg-color);
-    border-radius: 0px;
-    width: 70%;
-    height: 70% auto;
-    
-    
+dialog::backdrop {
+	backdrop-filter: blur(0.25rem);
 }
 
-
-#popup p { /*Tags*/
-    font-family: "Gilda Display", serif;
-    font-size: 1rem;
-    margin: 20px 0;
-    color: #333;
+dialog iframe {
+	display:block;
+	background:white;
+	width: min(1440px,100%);
+	height:100%;
+	border:none;
+	padding:0;
+	margin:auto;
 }
 
-
-#popup >div p { /*Description*/
-    font-family: Montserrat;
-    display: flex;
-    font-size: 1.5rem;
-    margin: 20px 0;
-    padding-left: 20%;
-    padding-right: 20%;
+#popup-close,#prev,#next {
+	z-index:10;
+	position:absolute;
+	text-decoration:none;
+}
+#popup-close {
+	font-size:200%;
+	top:10px;
+	right:10px;
 }
 
-#popup >div >div { /*Description Expandable*/
-    
-    font-family: Montserrat;
-    padding-left: 20%;
-    padding-right: 20%;
-    font-size: 1.5rem;
+#prev {
+	font-size:300%;
+	top:40vh;
+	left:10px;
+}
+#next {
+	font-size:300%;
+	top:40vh;
+	right:10px;
 }
 
-em {
-    color: #555;
-    text-decoration: none;
-}
-
-.collapsible {
-    cursor: pointer;
-    margin: 20px 0;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-
-.content {
-    display: none;
-    text-align: center;
-    color: #555;
-}
-
-
-
-@media (max-width: 768px) { 
-
-    #popup h2 {
-        font-size: 40px;
-    }
-
-    #popup > div p {
-        font-size: 1.2rem;
-        padding-left: 10%; 
-        padding-right: 10%;
-    }
-    main {
-        padding-top: 25px;
-        padding-left: 60px;
-        padding-right: 60px;
-        padding-bottom: 60px;
-    }
-    #popup img,
-    #popup iframe {
-        width: 70%;
-        height: 70%;
-        
-    }
-    
-    #popup >div >div { /*Description Expandable*/
-        font-size: 1.2rem;
-        padding-left: 20%;
-        padding-right: 20%;
-    }
-    
-    #popup p { /*Tags*/
-        font-size: 1rem;
-    }
-
-    em {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-
-    #popup h2 {
-        font-size: 30px;
-    }
-
-    #popup > div p {
-        font-size: 1.3rem;
-        padding-left: 5%; 
-        padding-right: 5%;
-    }
-    main {
-        padding-top: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 10px;
-    }
-
-    #popup p { /*Tags*/
-        font-size: 0.9rem;
-    }
-
-    #popup img,
-    #popup iframe {
-        
-        width: 90%;
-        height: 90%;
-        
-    }
-    
-    #popup >div >div { /*Description Expandable*/
-        font-size: 1.3rem;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-
-    em {
-        font-size: 0.9rem;
-    }
-    
-}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>Die Epochen Romantik, Biedermeier & Vormärz</h2>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/92aThJXQVK8" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p>
+                <span class="tag">Grafikdesign</span>&#x30FB;<span class="tag">Slideshow</span>&#x30FB;<span class="tag">November 2022</span>
+            </p>
+            <div>
+                <p>Bei dieser Slideshow werden die Epochen Romantik, Biedermeier und Vormärz vorgestellt und was diese ausmacht.</p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Es entstand im Deutschunterricht der E-Phase zum Thema "Epochen" am Gymnasium Horn.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Eine, für Slideshows, etwas kompliziertere Szene andeuten, allein durch das Nutzen von Fotos und Animationen in einer Slideshow-Software.
+                </div>
+            </div>
+        </article>
+    </main>
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

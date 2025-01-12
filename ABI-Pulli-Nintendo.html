@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>ABI Pulli Nintendo</h2>
+            <a href="https://i.imgur.com/JXI1fCG.jpeg" target="_blank">
+                <img src="https://i.imgur.com/JXI1fCG.jpeg" alt="ABI Pulli Nintendo">
+            </a>
+            <p>
+                <span class="tag">Grafikdesign</span>&#x30FB;<span class="tag">Januar 2024</span>
+            </p>
+            <div>
+                <p>Das Design für den Abi Pullover des Jahrgangs 2024 am Gymnasium Horn. Das Design übernimmt eine klassische retro Farbpalette, welche man mit Nintendo identifiziert, als auch die Font und baut damit den vorgegebenen Motto-Spruch ein. Der alte Controller fügt eine Grafik zum sonst nur aus Text bestehenden Logo.</p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Das Design war Gewinner einer Abstimmung mit den 120 Abiturienten und wurde dann auf die Pullover für den Abiturjahrgang gedruckt.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Echter Druck auf einem Hoodie für eine größere Gruppe an Menschen, die diesen dann kaufen.
+                </div>
+                <a href="detail/WIP/Mockup.jpg" target="_blank">
+                    <img src="detail/WIP/Mockup.jpg" alt="Mockup vom Hersteller">
+                </a>
+                <em>Mockup vom Hersteller.</em>
+                <a href="detail/WIP/ABITENDO.png" target="_blank">
+                    <img src="detail/WIP/ABITENDO.png" alt="Vektor Logo">
+                </a>
+                <em>Vektor Logo.</em>
+            </div>
+        </article>
+    </main>
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

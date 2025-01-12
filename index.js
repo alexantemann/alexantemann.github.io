@@ -2,7 +2,7 @@
 // masonry
 
 const VRES= 5; // rem: must match css grid-template-rows TODO? read css
-const VGAP= 60;
+const VGAP= 40;
 const gallery= document.getElementById("gallery");
 const heightMap= new Map();
 new ResizeObserver(()=>{

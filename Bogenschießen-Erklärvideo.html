@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>Bogenschießen Erklärvideo</h2>
+            <iframe src="https://www.youtube.com/embed/5ZMjiql5Frs" title="Das Ei - Eine Kurzgeschichten-Verfilmung" allowfullscreen></iframe>
+            <p>
+                <span class="tag">Video Editing</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="tag">Dezember 2020</span>
+            </p>
+            <div>
+                <p>In diesem Video Essay wird die Sportart des Bogenschießens behandelt. Durch Motion Design werden die essenziellen Aspekte des Sports veranschaulicht.</p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Es entstand während des Sportunterrichts am Gymnasium Horn. Aufgabe war es, eine Sportart vorzustellen.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Erstes Mal Motion Design mit 2D Charakteren in einer neuen Software. 2D Mundbewegungen passend zur Audio und allgemein Bewegungen der Figur waren eine Herausforderung. Auch das Erstellen der Umgebungen mit Vektor-Grafiken hatte ich zuvor selten gemacht.
+                </div>
+            </div>
+        </article>
+    </main>
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

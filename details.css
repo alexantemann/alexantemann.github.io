@@ -30,6 +30,12 @@
     font-style: normal;
 }
 
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 
 
 * {
@@ -118,37 +124,49 @@ H1 {
     
 }
 
+#popup > a > img {
+    display: block;
+    margin: 20px auto;
+    max-height: 75dvh;
+    max-width:100%;
+}
+
 #popup img {
     display: block;
     margin: 20px auto;
-    max-height: 60dvh;
+    max-height: 110dvh;
     max-width:100%;
 }
 
 
+
+
 #popup p { /*Tags*/
-    font-family: "Gilda Display", serif;
-    font-size: 1rem;
+    font-family: "Libre Baskerville", serif;
+    font-size: 20px;
+    font-weight: 50;
     margin: 20px 0;
-    color: #333;
+    color: rgba(51, 51, 51, 0.8);
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 
 #popup >div p { /*Description*/
+    font-weight: 400;
     font-family: Montserrat;
-    display: flex;
     font-size: 1.5rem;
-    margin: 20px 0;
-    padding-left: 20%;
-    padding-right: 20%;
+    color: var(--text-bg-color);
 }
 
 #popup >div >div { /*Description Expandable*/
     
     font-family: Montserrat;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
     font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-bg-color);
 }
 
 em {
@@ -174,8 +192,8 @@ em {
     text-decoration: underline;
     color: var(--text-bg-color);
     font-size: 1.5rem;
-    padding-left: 20%; 
-    padding-right: 20%;
+    padding-left: 10%; 
+    padding-right: 10%;
     display: block;
     
 }

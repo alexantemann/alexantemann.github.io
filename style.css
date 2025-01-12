@@ -30,6 +30,12 @@
     font-style: normal;
 }
 
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 
 
 * {
@@ -56,7 +62,9 @@ body {
     
     --card-padding: 10px;
     --card-rounded: 0px;
-    --bg-color: #f2f2f2;
+    /*
+    --bg-color: #f2f2f2;*/
+    --bg-color: #ffffff;
     --text-bg-color: #0c0c0c;
 }
 
@@ -83,12 +91,15 @@ H1 {
 
 
 #gallery {
-    padding: 60px;	
+    padding-top: 25px;
+    padding-left: min(40px, 5vw);
+    padding-right: min(40px, 5vw);
+    padding-bottom: min(40px, 5vw);
     display: grid;
-    max-width: 1400px;
+    max-width: 1800px;
     margin: auto;
-    column-gap: 2rem;
-    grid-template-columns: repeat(auto-fill, minmax(max(270px, 30%), 1fr));
+    column-gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(max(270px, 23%), 1fr));
     grid-template-rows: 5px;
 }
 
@@ -116,7 +127,7 @@ H1 {
 
 #gallery img:hover {
     transform: scale(1.01);
-    transition: transform 0.5s;
+    transition: transform 0.6s;
 }
 
 
@@ -126,15 +137,16 @@ H1 {
 #gallery p {
     
     color: var(--text-bg-color);
-    font-size:100%;
+    font-size:95%;
     margin:0;
-    font-family:Gilda Display;
-    font-weight: 550;
+    font-family:Libre Baskerville;
+    font-weight: 50;
+    opacity: 0.8;
 }
 
 
 #gallery h2 {
-    font-size: 105%;
+    font-size: 110%;
     margin-top: 20px;
     padding-top: 5px;
     margin-bottom: 1px;
@@ -241,8 +253,11 @@ dialog {
 }
 
 dialog::backdrop {
+    /*
 	backdrop-filter: blur(0.25rem);
-}
+    */
+    background-color: rgba(255, 255, 255, 0.6);
+    }
 
 dialog iframe {
 	display:block;

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>How To Build Up Hype For A Show - Video Essay</h2>
+            <iframe src="https://www.youtube.com/embed/leZXiDustTE" title="How To Build Up Hype For A Show - Video Essay" allowfullscreen></iframe>
+            <p>
+                <span class="tag">3D</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="tag">Juni 2022</span>
+            </p>
+            <div>
+                <p>Bei dem Video handelt es sich um einen englischen Video-Essay, der die Frage behandelt, wie man Begeisterung für eine Serie erzeugen kann. Die Präsentation erfolgt in Form einer vollständigen 3D-Animation.</p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Es entstand als Probe-Projektarbeit im Fach Englisch während der E-Phase mit der Fragestellung "How To Build Up Hype For A Show". Diese wurde mit 15 Punkten absolviert.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Es war für mich eine neue Herausforderung, das komplette Video-Essay in 3D zu machen, nach dem letzten 2D Video-Essay über Bogenschießen. Solch eine ausführliche 3D Animation hatte ich vorher noch nicht gemacht.
+                </div>
+                <iframe src="https://www.youtube.com/embed/EDh3e5WdCvY" title="Storyboard zum Video-Essay" allowfullscreen></iframe>
+                <em>Storyboard zum Video-Essay.</em>
+            </div>
+        </article>
+    </main>
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

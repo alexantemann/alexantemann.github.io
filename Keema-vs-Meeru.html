@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>Keema vs Meeru Fight</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ldCO4bBtNmg" title="Keema vs Meeru Fight" allowfullscreen></iframe>
+            </div>
+            <p>
+                <span class="tag">3D</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="tag">April 2022</span>
+            </p>
+            <div>
+                <p>
+                    Das Video zeigt einen kurzen 3D-animierten Kampf, basierend auf einem Comic von Nuba_Comics. Dabei wurde der visuelle schwarz/weiß Stil des Comics in die 3D-Welt übertragen.
+                </p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Es entstand im Rahmen des Projektes "Instart", ein Projekt mit Jugendlichen zum Thema Kunst und Instagram, für eine Masterarbeit in Kunst. Aufgabe war es, basierend auf einem Werk jemand anderes, eine eigene Kreation zu erschaffen. Anschließend sollte dazu ein Tutorial-Video aufgenommen werden.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Effizient anhand vorgefertigter Animationen ein Kurzvideo erschaffen. Auch die Anfertigung eines Tutorials war neu.
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/m0q9qDjuUjQ" title="Tutorial Keema vs Meeru" allowfullscreen></iframe>
+                </div>
+
+                <em>Hier ein Tutorial, um ähnliche Animationen zu erstellen.</em>
+                <a href="detail/WIP/Comic Nuba.jpg" target="_blank">
+                    <img src="detail/WIP/Comic Nuba.jpg" alt="Comic auf welchem die Animation basiert">
+                </a>
+                
+                <em>Comic auf welchem die Animation basiert von <a style="display:inline; padding-left: 1px; padding-right: 1px; font-style: italic; font-size: 0.9rem; " href="https://www.instagram.com/nuba_comics/" target="_blank">Nuba_Comics</a> (Ursprüngliches Werk wurde gelöscht).</em>
+            </div>
+        </article>
+    </main>
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

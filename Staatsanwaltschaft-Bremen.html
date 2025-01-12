@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>Wandbild für die Staatsanwaltschaft Bremen</h2>
+            <a href="https://i.imgur.com/eedvaWW.png" target="_blank">
+                <img src="https://i.imgur.com/eedvaWW.png" alt="Wandbild für die Staatsanwaltschaft Bremen">
+            </a>
+            <p>
+                <span class="tag">Grafikdesign</span>&#x30FB;<span class="tag">Februar 2024</span>
+            </p>
+            <div>
+                <p>Eine bunte Darstellung Bremens mit Einflüssen des Pop-Art Stils auf eine große längliche Leinwand. Das Konzept habe ich digital erstellt und die Mitwirkenden des Projekts haben dieses dann auf die Leinwand mit Gouache übertragen, anhand einer Beamer-Projektion.</p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Die Staatsanwaltschaft Bremen hat unseren Kurs darum gebeten, ein altes Gemälde zu übermalen mit Pop-Art Einflüssen, um mehr Leben in einen sonst trostlosen Sitzungsraum zu bringen.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Erste Erfahrung, in welcher ich das Konzept erstelle und andere dieses dann in echt umsetzen und übertragen.
+                </div>
+                <a href="detail/WIP/Sitzungszimmer.jpg" target="_blank">
+                    <img src="detail/WIP/Sitzungszimmer.jpg" alt="Foto vom Werk Vorort in einem Sitzungszimmer">
+                </a>
+                <em>Foto vom Werk Vorort in einem Sitzungszimmer der Staatsanwaltschaft Bremen.</em>
+                <a href="detail/WIP/Weser Kurier.jpg" target="_blank">
+                    <img src="detail/WIP/Weser Kurier.jpg" alt="Zeitungsartikel im Weser Kurier">
+                </a>
+                <em>Zeitungsartikel im Weser Kurier.</em>
+                <a href="detail/WIP/erstere version.png" target="_blank">
+                    <img src="detail/WIP/erstere version.png" alt="Eine der anfänglichen Versionen">
+                </a>
+                <em>Eine der anfänglichen Versionen.</em>
+            </div>
+        </article>
+    </main>
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>Im Spiegel - 2D/3D Animation</h2>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ucY2eVlgT5c" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p>
+                <span class="tag">3D</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="tag">Februar 2022</span>
+            </p>
+            <div>
+                <p>Im Video wird die Kurzgeschichte "Im Spiegel" von Margret Steenfatt adaptiert. Die Geschichte wird durch die Kombination von 2D- und 3D-Elementen dargestellt.</p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Es entstand im Deutschunterricht der E-Phase zum Thema "Kurzgeschichten" am Gymnasium Horn. Wir waren eine 3er Gruppe und die Zeichnungs-Basen, mit denen ich dann weitergearbeitet habe, waren von Emily und Max.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Der Mix zwischen 2D & 3D Animation war mir neu und auch mit Zeichnungen im 3-dimensionalen Raum zu arbeiten & animieren. Erster Kontakt mit dem “Grease Pencil” Tool von Blender.
+                </div>
+                <a href="detail/WIP/alpha v1.png" target="_blank">
+                    <img src="detail/WIP/alpha v1.png" alt="Erster Einblick in den Raum in 3D">
+                </a>
+                <em>Erster Einblick in den Raum in 3D.</em>
+                <a href="detail/WIP/2.png" target="_blank">
+                    <img src="detail/WIP/2.png" alt="Eines der 2D Bilder bevor es in 3D übertragen wird">
+                </a>
+                <em>Eines der 2D Bilder bevor es in 3D übertragen wird.</em>
+                <a href="detail/WIP/Skizzen.jpg" target="_blank">
+                    <img src="detail/WIP/Skizzen.jpg" alt="Erste Skizzen von Max">
+                </a>
+                <em>Erste Skizzen von Max.</em>
+                <a href="detail/WIP/Spiegel Storyboard.jpg" target="_blank">
+                    <img src="detail/WIP/Spiegel Storyboard.jpg" alt="Storyboard Ideen, skizziert von Emily">
+                </a>
+                <em>Storyboard Ideen, skizziert von Emily.</em>
+            </div>
+        </article>
+    </main>
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

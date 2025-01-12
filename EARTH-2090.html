@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>EARTH 2090 - an art project</h2>
+            <iframe src="https://www.youtube.com/embed/WZXQ4JXE5m8" title="EARTH 2090 - an art project" allowfullscreen></iframe>
+            <p>
+                <span class="tag">3D</span>&#x30FB;<span class="tag">Video</span>&#x30FB;<span class="tag">Juli 2022</span>
+            </p>
+            <div>
+                <p>In dieser animierten 3D-Szene begleiten wir einen Roboter durch eine zerstörte Umwelt. Die Szenerie illustriert die Auswirkungen von Klimawandel und Umweltzerstörung, unter anderem durch Krieg.</p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Es entstand in dem Kunst Leistungskurs E-Phase am Gymnasium Horn.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Erste Erfahrungen mit World Building, welches von sich aus eine Geschichte erzählen soll. Auch interessant war das Sound Design einer verlassenen Welt zu gestalten.
+                </div>
+                <a href="detail/WIP/Skizze Earth 1.png" target="_blank">
+                    <img src="detail/WIP/Skizze Earth 1.png" alt="Skizze Earth 1">
+                </a>
+                <em>Skizze Umgebung 1 von Lennart Wolf.</em>
+                <a href="detail/WIP/Skizze Earth 2.png" target="_blank">
+                    <img src="detail/WIP/Skizze Earth 2.png" alt="Skizze Earth 2">
+                </a>
+                <em>Skizze Umgebung 2 von Lennart Wolf.</em>
+                <a href="detail/WIP/Skizze Earth 3.png" target="_blank">
+                    <img src="detail/WIP/Skizze Earth 3.png" alt="Skizze Earth 3">
+                </a>
+                <em>Skizze Umgebung 3 von Lennart Wolf.</em>
+                <a href="detail/WIP/Earth WIP.png" target="_blank">
+                    <img src="detail/WIP/Earth WIP.png" alt="Erste Bilder vom Bau der Stadt Umgebung">
+                </a>
+                <em>Erste Bilder vom Bau der Stadt Umgebung.</em>
+            </div>
+        </article>
+    </main>
+    
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

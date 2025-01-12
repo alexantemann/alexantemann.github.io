@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>Valérie Pécresse</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/X2ZXSTSRY8g" title="Valérie Pécresse Slideshow" allowfullscreen></iframe>
+            </div>
+            <p>
+                <span class="tag">Grafikdesign</span>&#x30FB;<span class="tag">Slideshow</span>&#x30FB;<span class="tag">März 2022</span>
+            </p>
+            <div>
+                <p>
+                    Diese Slideshow ist auf Französisch und Thema ist Valérie Pécresse, eine Präsidentschaftskandidatin der französischen Präsidentschaftswahlen 2022. Es wird ein Blick auf ihr Leben, ihre Ziele und auch auf Kritikpunkte geworfen.
+                </p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Es entstand im Französischunterricht der E-Phase zum Thema "Präsidentschaftswahl 22" am Gymnasium Horn.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Einbau von 3D Elementen und GIFs in eine Slideshow.
+                </div>
+            </div>
+        </article>
+    </main>
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

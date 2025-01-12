@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Das Ei</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    
+    
+    
+    
+    <main>
+        <article id="popup">
+            <h2>Abyss</h2>
+            <a href="https://i.imgur.com/V9jNZzQ.png" target="_blank"> 
+                <img src="https://i.imgur.com/V9jNZzQ.png" alt="Abyss 3D Szene">
+            </a>
+            <p>
+                <span class="tag">3D</span>&#x30FB;<span class="tag">Still</span>&#x30FB;<span class="tag">März 2024</span>
+            </p>
+            <div>
+                <p>
+                    Die Szene zeigt einen Menschen aus der Ich-Perspektive, welcher sich Unterwasser in einem U-Boot befindet. Das Glas ist zerstört worden, es erscheint jedoch ein Lichtblick an der Wasseroberfläche. Welches Ereignis oder Wesen diese Zerstörung verursacht hat, ist unklar.
+                </p>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Entstehung
+                </div>
+                <div class="content">
+                    Es entstand während des Projektes "Kunstköpfe", bei welchem eine Gruppe von Jugendlichen 1x im Monat selbstständig kurze Lernstunden zu einer Reihe von künstlerischen Themen erstellten und Vorort in Museen durchführten, mit passenden Hausaufgaben. Bei dieser Aufgabe haben die Teilnehmer einem Kunstwerk im Museum 3 Adjektive zugewiesen. Diese wurden dann untereinander verteilt und man sollte ein neues Werk, anhand dieser 3 Adjektive, erschaffen. Hier: kühl, nass und Licht.
+                </div>
+                <div class="collapsible" onclick="toggleContent(this)">
+                    <span>&#9654;</span> Erfahrung
+                </div>
+                <div class="content">
+                    Eine Unterwasser 3D Szene bringt interessante Herausforderungen mit sich, besonders was Lichtreflexe und Volumen angeht.
+                </div>
+                <a href="detail/WIP/clay1.png" target="_blank">
+                    <img src="detail/WIP/clay1.png" alt="Szene im Solid View und anderer Winkel">
+                </a>
+                <em>Szene im Solid View und anderer Winkel.</em>
+                <a href="detail/WIP/clay2.png" target="_blank">
+                    <img src="detail/WIP/clay2.png" alt="Komplette Szene aus anderer Perspektive im Solid View">
+                </a>
+                <em>Komplette Szene aus anderer Perspektive im Solid View.</em>
+            </div>
+        </article>
+    </main>
+    
+
+        <script>
+            
+            
+            function toggleContent(element) {
+                const content = element.nextElementSibling;
+                const span = element.querySelector('span');
+                const isHidden = content.style.display === 'none' || content.style.display === '';
+                
+                content.style.display = isHidden ? 'block' : 'none';
+                span.textContent = isHidden ? '\u25BC' : '\u25BA';
+            }
+            
+            
+        </script>
+    </body>
+    
+    </html>

@@ -1,71 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Moving On</title>
+		<link rel="stylesheet" href="detail.css">
+	</head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Das Ei</title>
-    <link rel="stylesheet" href="details.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
-</head>
+	<body id="detail">
 
-<body>
-    
-    
-    
-    
-    
-    <main>
-        <article id="popup">
-            <h2>Moving On</h2>
-            <a href="https://i.imgur.com/iXFp6VW.jpeg" target="_blank">
-                <img src="https://i.imgur.com/iXFp6VW.jpeg" alt="Moving On">
-            </a>
-            <p>
-                <span class="tag">3D</span>&#x30FB;<span class="tag">Still</span>&#x30FB;<span class="tag">Oktober 2023</span>
-            </p>
-            <div>
-                <p>Eine Szene mit einem selbst gesculpteten Charakter, passend zum Song "Moving On" von Lil Peep. Es zeigt einen vom Drogeneinfluss gezeichneten Menschen (bewusst androgyn), dessen abwesender Blick und melancholische Farbgestaltung die Zerstörung seines Selbst, sein inneres Leiden und die verzweifelte Suche nach Hilfe widerspiegeln. Thema war es, eine Szene zu gestalten, welches von einem Lied inspiriert ist (Sei es Atmosphäre, Text oder persönliche Assoziation).</p>
-                <div class="collapsible" onclick="toggleContent(this)">
-                    <span>&#9654;</span> Entstehung
-                </div>
-                <div class="content">
-                    Es entstand während des Projektes "Kunstköpfe", bei welchem eine Gruppe von Jugendlichen 1x im Monat selbstständig kurze Lernstunden zu einer Reihe von künstlerischen Themen erstellten und Vorort in Museen durchführten, mit passenden Hausaufgaben.
-                </div>
-                <div class="collapsible" onclick="toggleContent(this)">
-                    <span>&#9654;</span> Erfahrung
-                </div>
-                <div class="content">
-                    Ich habe dieses Projekt gestartet, um auszuprobieren, einen realistischen Menschen darzustellen. D.h. einmal den Kopf zu sculpten in einer mir noch unbekannten software und diesen anschließend mit realistischen Texturen zu versehen, sowie mit Haaren.
-                </div>
-                <a href="detail/WIP/Sculpt.png" target="_blank">
-                    <img src="detail/WIP/Sculpt.png" alt="Bild von dem sculpted Kopf">
-                </a>
-                <em>Bild von dem sculpted Kopf.</em>
-            </div>
-        </article>
-    </main>
-    
+		<h1>Moving On</h1>
+        
+    <a href="detail/WIP/Moving On.jpg" target="_blank">
+    <img src="detail/WIP/Moving On.jpg">
+    </a>
 
-        <script>
+
+		<p class="tags">3D・Still・Oktober 2023</p>
+
+		<p>Eine Szene mit einem selbst gesculpteten Charakter, passend zum Song "Moving On" von Lil Peep. Es zeigt einen vom Drogeneinfluss gezeichneten Menschen (bewusst androgyn), dessen abwesender Blick und melancholische Farbgestaltung die Zerstörung seines Selbst, sein inneres Leiden und die verzweifelte Suche nach Hilfe widerspiegeln. Thema war es, eine Szene zu gestalten, welches von einem Lied inspiriert ist (Sei es Atmosphäre, Text oder persönliche Assoziation).</p>
+
+        
+		<details>
+			<summary>Entstehung</summary>
+			<p>Es entstand während des Projektes "Kunstköpfe", bei welchem eine Gruppe von Jugendlichen 1x im Monat selbstständig kurze Lernstunden zu einer Reihe von künstlerischen Themen erstellten und Vorort in Museen durchführten, mit passenden Hausaufgaben.</p>
+		</details>
+        
+		<details>
+			<summary>Erfahrung</summary>
+			<p>Ich habe dieses Projekt gestartet, um auszuprobieren, einen realistischen Menschen darzustellen. D.h. einmal den Kopf zu sculpten in einer mir noch unbekannten software und diesen anschließend mit realistischen Texturen zu versehen, sowie mit Haaren.</p>
+		</details>
+        
+
+        
+		<figure>
             
-            
-            function toggleContent(element) {
-                const content = element.nextElementSibling;
-                const span = element.querySelector('span');
-                const isHidden = content.style.display === 'none' || content.style.display === '';
-                
-                content.style.display = isHidden ? 'block' : 'none';
-                span.textContent = isHidden ? '\u25BC' : '\u25BA';
-            }
-            
-            
-        </script>
-    </body>
-    
-    </html>
+    <a href="detail/WIP/Sculpt.png" target="_blank">
+    <img src="detail/WIP/Sculpt.png">
+    </a>
+
+            <figcaption>Bild von dem sculpted Kopf</figcaption>
+		</figure>
+        
+
+	</body>
+
+</html>

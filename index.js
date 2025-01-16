@@ -35,7 +35,7 @@ const filterRadioByValue= Array.prototype.reduce.call(
 	(map,input)=>(map.set(input.value,input),map),
 	new Map()
 );
-console.log(filterRadioByValue)
+
 filterBar.addEventListener("change", (event) => {
 		window.location= "#-"+event.target.value;
 	});
@@ -56,7 +56,7 @@ function updatePopupState() {
 		iframe.contentWindow.location.replace("about:blank");
 		popup.close();
 
-		document.querySelector("A[name=projects]").scrollIntoView();
+		document.getElementById("projects").scrollIntoView();
 		let filter= decodeURI(h.substring(2));
 		(filterRadioByValue.get(filter)??filterRadioByValue.get(filter= "all")).checked= true;
 
@@ -94,57 +94,31 @@ popup.addEventListener("close", (event) => {
 updatePopupState();
 
 
-// Header scroll
-document.addEventListener("DOMContentLoaded", () => {
-    const header = document.querySelector("body > header");
-    const alexLink = document.querySelector("body > header > a:first-child");
-    const textLinks = document.querySelectorAll("body > header > a:not(:first-child)");
-    const main = document.querySelector("main");
-    const sections = Array.from(document.querySelectorAll("main > section"));
-    const projectsAnchor = document.querySelector("A[name='projects']"); // Special case for projects
+/* section tracking / menu animation */
 
-    main.addEventListener("scroll", () => {
-        const homeSection = document.getElementById("home");
-        const homeSectionBottom = homeSection.getBoundingClientRect().bottom - header.getBoundingClientRect().height;
+const main = document.querySelector("main");
+const menu = document.getElementById("menu");
+const alex = document.getElementById("alex");
+const visibleIds= {}
 
-        // Check if the home section has been crossed
-        if (homeSectionBottom < 100) {
-            header.classList.add("hvisible");
-            textLinks.forEach(link => link.classList.add("text-visible"));
-            alexLink.classList.add("sticky-visible"); // Make Alex link sticky at the top
-        } else {
-            header.classList.remove("hvisible");
-            textLinks.forEach(link => link.classList.remove("text-visible"));
-            alexLink.classList.remove("sticky-visible"); // Remove sticky positioning
-        }
+const sectionObserver = new IntersectionObserver(
+	(entries, observer) => {
+		for (const entry of entries) {
+			visibleIds[entry.target.id]= entry.isIntersecting;
+		}
+		let firstVisibleId= Array.prototype.find.call(main.children,section=>visibleIds[section.id])?.id;
+		for(const link of menu.children) {
+			link.classList.toggle("current-section", link.href.endsWith('#'+firstVisibleId));
+		}
+		alex.classList.toggle("visible",firstVisibleId!=="home");
+	},
+	{root:main, rootMargin:"-25% 0px 0px 0px"}
+);
 
-        // Determine the current section in view
-        let currentSection = "";
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const sectionHeight = section.offsetHeight;
+for(const section of main.children) {
+	sectionObserver.observe(section)
+}
 
-            // Special case for the "projects" section using the anchor
-            if (section.id === "project" && projectsAnchor) {
-                const anchorTop = projectsAnchor.getBoundingClientRect().top;
-                const anchorBottom = anchorTop + sectionHeight;
+/* trick to give time to download fonts */
 
-                if (anchorTop <= 100 && anchorBottom > 100) {
-                    currentSection = "projects"; // Match the link's href value
-                }
-            } else if (sectionTop <= 100 && sectionTop + sectionHeight > 100) {
-                currentSection = section.id; // Set current section's ID
-            }
-        });
-
-        // Highlight the appropriate link
-        textLinks.forEach(link => {
-            if (link.getAttribute("href").substring(1) === currentSection) {
-                link.classList.add("current-section");
-            } else {
-                link.classList.remove("current-section");
-            }
-        });
-    });
-});
-
+setTimeout(()=>(document.body.style.opacity=null),200)

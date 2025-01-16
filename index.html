@@ -10,30 +10,49 @@
 	<script defer src="index.js"></script>
 </head>
 
-<body>
-	<header>
-		<a href="#home">Alex Antemann</a>
-		<a href="#home" id="home-link">Home</a>
-		<a href="#projects" id="projects-link">Galerie</a>
-		<a href="#about" id="about-link">Über Mich</a>
+<body style="opacity:0">
+	<nav>
 		
-		
-	</header>
+		<a id="alex" href="#home">Alex Antemann</a>
+		<div id="menu">
+			<a href="#home" id="home-link">Home</a>
+			<a href="#projects" id="projects-link">Portfolio</a>
+			<a href="#about" id="about-link">Über Mich</a>
+		</div>
+	</nav>
 	<main>
 		<section id="home">
-			
-			<h1>&nbsp;&nbsp;Alex <br /> Antemann</h1>
+			<div class="top-info">
+				<p>
+					Based in:
+					<br>
+					Bremen, Germany
+				</p>
+				<p>
+					Schreib mir:
+					<br>
+					<a href="alex.antemann@example.mail">alex.antemann@example.mail</a>
+				</p>
+			</div>
+			<h1 style="text-align: center">&nbsp;&nbsp;Alex <br /> Antemann</h1>
 			<p>Eine Leidenschaft für Grafikdesign, 3D und Video Editing</p>
 			<nav>
 				<a href='#projects'>Meine Arbeiten</a>
 				<a href='#about'>Über mich</a>
+				
 			</nav>
-			
+			<!-- Right Section -->
+			<div class="right-section">
+				<a href="#home" id="home-link">Home</a>
+				<a href="#projects" id="projects-link">Portfolio</a>
+				<a href="#about" id="about-link">Über Mich</a>
+			</div>
 			
 		</section>
-		<section id="project">
-			<a name="projects"></a>
-			<h1>MEINE PROJEKTE</h1>
+		
+		<section style="" id="projects">
+			<h1>Portfolio</h1>
+			<hr class="r">
 			
 			<header id="filters">
 				<label><input value="all" name="filter" type="radio" checked>Alle</label>
@@ -77,6 +96,15 @@
 					</a>
 				</div>
 				
+				<div>
+					<a href="#+Moving On.html">
+						<img src="gallery/Moving On.webp" alt="Moving On">
+						<h2>Moving On</h2>
+						<p>
+							<span class="tag">3D</span>・<span class="tag">Still</span>・<span class="card-date">Oktober 2023</span>
+						</p>
+					</a>
+				</div>
 				
 				<div>
 					<a href="#+EARTH 2090 - an art project.html">
@@ -88,15 +116,7 @@
 					</a>
 				</div>
 				
-				<div>
-					<a href="#+Moving On.html">
-						<img src="gallery/Moving On.webp" alt="Moving On">
-						<h2>Moving On</h2>
-						<p>
-							<span class="tag">3D</span>・<span class="tag">Still</span>・<span class="card-date">Oktober 2023</span>
-						</p>
-					</a>
-				</div>
+				
 				
 				<div>
 					<a href="#+How To Build Up Hype For A Show - Video Essay.html">
@@ -222,10 +242,42 @@
 			
 		</section>
 		
-		<section id="about">
-			<h1>Über Mich</h1>
-			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+		<section style="text-align: left;" id="about">
+			<h1 >Über Mich</h1>
+			<hr class="l">
+			
+			<div>
+				
+				<h2>
+					Ich heiße Alex, bin 18 Jahre alt und habe eine große Leidenschaft für 3D-Kreation, Grafikdesign und Videobearbeitung.
+				</h2>
+				<p>
+					Meine Fähigkeiten habe ich mir eigenständig durch Online-Ressourcen wie YouTube sowie durch viel Ausprobieren angeeignet.
+					<br>
+					<br>
+					Was mich antreibt, ist die Freude daran, neue Herausforderungen anzunehmen und mich ständig weiterzuentwickeln. Oft beginne ich Projekte mit einer Vision - die Frage, wie man dies technisch umsetzt, kommt später.
+					<br>
+					<br>
+					Der Weg ist für mich genauso wichtig wie das Ziel: Jedes Projekt ist eine Gelegenheit, nicht nur etwas Neues zu schaffen, sondern auch mich fachlich und kreativ weiterzuentwickeln. 
+					<br>
+					<br>
+					Dabei ist mir bewusst, dass ich noch nicht alles weiß. Dies sehe ich jedoch nicht als Einschränkung, vielmehr als Gelegenheit, mit jeder Aufgabe Neues dazuzulernen.
+				</p>
+				
+			</div>
+			
+			
+			<p>
+				Schreib mir:
+				<br>
+				<a href="alex.antemann@example.mail">alex.antemann@example.mail</a>
+			</p>
+			
+			
+			
+			
 		</section>
+		
 	</main>
 	
 	

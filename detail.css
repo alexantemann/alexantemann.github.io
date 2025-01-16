@@ -4,7 +4,11 @@
     box-sizing: border-box;
 }
 
+
+
 body#detail {
+	--bg-color: #f3f3f3;
+    --text-bg-color: #0c0c0c;
 	
     font-family: "Montserrat", sans-serif;
 	font-size: clamp(1.1rem,3vw,1.5rem);
@@ -27,6 +31,16 @@ body#detail {
 		font-size: clamp(20px,5vw,40px);
 	    font-weight: 500;
 	}
+
+	::-moz-selection { /* Code for Firefox */
+		color: var(--bg-color);
+		background: rgba(0, 0, 0, 0.877);
+	  }
+	  
+	  ::selection {
+		color: var(--bg-color);
+		background: rgba(0, 0, 0, 0.877);
+	  }
 
 
 	img {

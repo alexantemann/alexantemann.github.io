@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mrs+Saint+Delafield&family=Kanit&display=swap&display=swap');
-
+@import url('https://emoji-css.afeld.me/emoji.css');
 
 
 * {
@@ -472,22 +472,22 @@ section:first-child .top-info {
     width: 90%;
     padding-left: clamp(1.5rem,10vw,10.5rem);
     font-family: Kanit;
-    position: absolute; /* Override flexbox alignment */
-    top: 0; /* Pin to the top of the parent container */
-    left: 0; /* Align with the left edge */
+    position: absolute;
+    top: 0; 
+    left: 0; 
     
-
+    
     p {
         text-align: left;
         font-size: clamp(0.8rem, 1vw, 1rem);;
         font-weight: 500;
         
     }
-
+    
     p > * {
         color: var(--text-bg-color);
     }
-
+    
     
 }
 
@@ -556,7 +556,7 @@ section:nth-child(3) > div > h2 {
     padding-bottom: 3rem;
 }
 
-section:nth-child(3) > div > p {
+section:nth-child(3) > div > em {
     font-size: clamp(0.8rem, 5vw, 1rem);
     min-width: 40vw;
     flex: 1 1 25%;
@@ -567,35 +567,58 @@ section:nth-child(3) > div > p {
     box-sizing: border-box;
     line-height: 1.5rem;
     padding-right: 10vw;
+    font-style: normal;
 }
+
+
+
+
+
 
 section:nth-child(3) > div > br {
     height: 2rem;
 }
 
 
-section:nth-child(3) > p {
-    display: block;
-    position: relative;
-    width: 100%;
+section:nth-child(3) > .bot-info {
+    
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+    font-family: Kanit;
+    top: 0; 
+    left: 0; 
+    gap: clamp(0.5rem, 5vw, 4rem);
     padding-left: clamp(1.5rem, 5vw, 4rem);
-    margin-top: 1rem;
-    line-height: 1.5rem;
-    top: -7vh;
-    font-weight: 500;
+    
+    & > p {
+        position: relative;
+        
+        margin-top: 1rem;
+        line-height: 1.5rem;
+        top: -7vh;
+        font-weight: 500;
+        white-space: nowrap; /* Prevent line breaks */
+        overflow: hidden; /* Hide overflowing text */
+        text-overflow: ellipsis;
+    }
+
+    i {
+        letter-spacing: 1rem;
+    }
 }
 
-section:nth-child(3) > p > * {
+section:nth-child(3) > div > p > * {
     color: var(--text-bg-color);
 }
 
 @media (max-width: 926px) { /* Adjust breakpoint based on your layout */
-    section:nth-child(3) > p {
+    section:nth-child(3) > .bot-info {
         top: 0vh;
-        margin-top: 3rem;
+        margin-top: 6rem;
     }
-
-    section:nth-child(3) > div > p {
+    
+    section:nth-child(3) > div > em {
         min-width: 50vw;
     }
 }
@@ -678,15 +701,15 @@ section:nth-child(3) > p > * {
         justify-content: center;
         padding-right:0%;
     }
-
+    
     section:first-child .top-info {
         justify-content:center;
         padding-top: 3vw;
     }
-
     
-
-
+    
+    
+    
 }
 
 @media only screen and (max-width: 1600px) {

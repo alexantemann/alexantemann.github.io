@@ -93,5 +93,9 @@ body#detail {
 	details > p {
 		margin-top:0.5rem;
 	}
+
+	a {
+		color: var(--text-bg-color);
+	}
 }
 

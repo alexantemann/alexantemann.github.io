@@ -3,6 +3,7 @@
 <html lang="en">
 
 
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,18 +13,22 @@
 </head>
 
 <body style="opacity:0">
-	<nav>
-		
-		<a id="alex" href="#home">Alex Antemann</a>
-		<div id="menu">
-			<a href="#home" id="home-link">Home</a>
-			<a href="#projects" id="projects-link">Portfolio</a>
-			<a href="#about" id="about-link">Über Mich</a>
-		</div>
-	</nav>
 	<main>
+		<button id="button-scroll" role="button"><img src="detail/Arrow.png"></button>
+
+		
+		
+		<a id="home"></a>
+		<nav id="nav">
+			<a id="alex" href="#home">Alex Antemann</a>
+			<div id="menu">
+				<a href="#home" id="home-link">Home</a>
+				<a href="#projects" id="projects-link">Portfolio</a>
+				<a href="#about" id="about-link">Über Mich</a>
+			</div>
+		</nav>
 		<section id="home">
-			<div class="top-info">
+			<header>
 				<p>
 					Based in:
 					<br>
@@ -34,13 +39,13 @@
 					<br>
 					<a href="alex.antemann@example.mail">alex.antemann@example.mail</a>
 				</p>
-			</div>
+			</header>
 			<h1 style="text-align: center">&nbsp;&nbsp;Alex <br /> Antemann</h1>
 			<p>Eine Leidenschaft für Grafikdesign, 3D und Video Editing</p>
 			<nav>
 				<a href='#projects'>Meine Arbeiten</a>
-				<a href='#about'>Über mich</a>
-				
+				<a href='#about'>Mein Profil</a>
+
 			</nav>
 			<!-- Right Section -->
 			<div class="right-section">
@@ -48,13 +53,12 @@
 				<a href="#projects" id="projects-link">Portfolio</a>
 				<a href="#about" id="about-link">Über Mich</a>
 			</div>
-			
+
 		</section>
-		
+
 		<section id="projects">
 			<h1>Portfolio</h1>
-			<hr class="r">
-			
+
 			<header id="filters">
 				<label><input value="all" name="filter" type="radio" checked>Alle</label>
 				<label><input value="3D" name="filter" type="radio">3D</label>
@@ -64,9 +68,9 @@
 				<label><input value="Slideshow" name="filter" type="radio">Slideshow</label>
 				<label><input value="Still" name="filter" type="radio">Still</label>
 			</header>
-			
+
 			<article id="gallery">
-				
+
 				<div>
 					<a href="#+Das Ei - Eine Kurzgeschichten-Verfilmung.html">
 						<img src="gallery/Das Ei.webp" alt="Das Ei - Eine Kurzgeschichten-Verfilmung">
@@ -76,7 +80,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Berufsorientierung Schaubild.html">
 						<img src="gallery/Berufsorientierung.webp" alt="Berufsorientierung Schaubild">
@@ -86,7 +90,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Documenta 15 - Am Ziel vorbei.html">
 						<img src="gallery/Documenta 15.webp" alt="Documenta 15 - Am Ziel vorbei?">
@@ -96,7 +100,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Moving On.html">
 						<img src="gallery/Moving On.webp" alt="Moving On">
@@ -106,7 +110,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+EARTH 2090 - an art project.html">
 						<img src="gallery/EARTH 2090.webp" alt="EARTH 2090 - an art project">
@@ -116,9 +120,9 @@
 						</p>
 					</a>
 				</div>
-				
-				
-				
+
+
+
 				<div>
 					<a href="#+How To Build Up Hype For A Show - Video Essay.html">
 						<img src="gallery/How To Build Up Hype For A Show.webp" alt="How To Build Up Hype For A Show - Video Essay">
@@ -128,7 +132,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Bogenschießen Erklärvideo.html">
 						<img src="gallery/Bogenschießen.webp" alt="Bogenschießen Erklärvideo">
@@ -138,7 +142,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Central Cee Präsentation.html">
 						<img src="gallery/Central Cee Poster.webp" alt="Central Cee Poster">
@@ -148,7 +152,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Wandbild für die Staatsanwaltschaft Bremen.html">
 						<img src="gallery/Wandbild für die Staatsanwaltschaft Bremen.webp" alt="Wandbild für die Staatsanwaltschaft Bremen">
@@ -158,7 +162,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+ABI Pulli Nintendo.html">
 						<img src="gallery/ABI Pulli Nintendo.webp" alt="ABI Pulli Nintendo">
@@ -168,7 +172,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+ABI Bag Nintendo.html">
 						<img src="gallery/ABI Bag Nintendo.webp" alt="ABI Bag Nintendo">
@@ -178,7 +182,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Zorro Z.html">
 						<img src="gallery/Zorro Z.webp" alt="Zorro Z">
@@ -188,7 +192,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Die Epochen Romantik, Biedermeier & Vormärz.html">
 						<img src="gallery/Die Epochen Romantik.webp" alt="Die Epochen Romantik, Biedermeier & Vormärz">
@@ -198,7 +202,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Im Spiegel - 2D_3D Animation.html">
 						<img src="gallery/Im Spiegel.webp" alt="Im Spiegel - 2D/3D Animation">
@@ -208,7 +212,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Abyss.html">
 						<img src="gallery/Abyss.webp" alt="Abyss">
@@ -218,7 +222,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Keema vs Meeru Fight.html">
 						<img src="gallery/Keema vs Meeru Fight.webp" alt="Keema vs Meeru Fight">
@@ -228,7 +232,7 @@
 						</p>
 					</a>
 				</div>
-				
+
 				<div>
 					<a href="#+Valérie Pécresse.html">
 						<img src="gallery/Valérie Pécresse.webp" alt="Valérie Pécresse - Présentation">
@@ -238,55 +242,64 @@
 						</p>
 					</a>
 				</div>
-				
+
 			</article>
-			
+
 		</section>
-		
+
 		<section style="text-align: left;" id="about">
 			<h1 >Über Mich</h1>
-			<hr class="l">
-			
+
 			<div>
-				
-				<h2>
+				<p>
 					Ich heiße Alex, bin 18 Jahre alt und habe eine große Leidenschaft für 3D-Kreation, Grafikdesign und Videobearbeitung.
-				</h2>
-				<em>
-					Meine Fähigkeiten habe ich mir eigenständig durch Online-Ressourcen wie YouTube sowie durch viel Ausprobieren angeeignet.
-					<br>
-					<br>
-					Was mich antreibt, ist die Freude daran, neue Herausforderungen anzunehmen und mich ständig weiterzuentwickeln. Oft beginne ich Projekte mit einer Vision - die Frage, wie man dies technisch umsetzt, kommt später.
-					<br>
-					<br>
-					Der Weg ist für mich genauso wichtig wie das Ziel: Jedes Projekt ist eine Gelegenheit, nicht nur etwas Neues zu schaffen, sondern auch mich fachlich und kreativ weiterzuentwickeln. 
-					<br>
-					<br>
-					Dabei ist mir bewusst, dass ich noch nicht alles weiß. Dies sehe ich jedoch nicht als Einschränkung, vielmehr als Gelegenheit, mit jeder Aufgabe Neues dazuzulernen.
-				</em>
-				
+				</p>
+
+				<div>
+					<p>
+						Meine Fähigkeiten habe ich mir eigenständig durch Online-Ressourcen wie YouTube sowie durch viel Ausprobieren angeeignet.
+					</p>
+					<p>
+						Was mich antreibt, ist die Freude daran, neue Herausforderungen anzunehmen und mich ständig weiterzuentwickeln. Oft beginne ich Projekte mit einer Vision - die Frage, wie man dies technisch umsetzt, kommt später.
+					</p>
+					<p>
+						Der Weg ist für mich genauso wichtig wie das Ziel: Jedes Projekt ist eine Gelegenheit, nicht nur etwas Neues zu schaffen, sondern auch mich fachlich und kreativ weiterzuentwickeln.
+					</p>
+					<p>
+						Dabei ist mir bewusst, dass ich noch nicht alles weiß. Dies sehe ich jedoch nicht als Einschränkung, vielmehr als Gelegenheit, mit jeder Aufgabe Neues dazuzulernen.
+					</p>
+				</div>
 			</div>
-			
-			<div class="bot-info">
-			<p>
-				Schreib mir:
-				<br>
-				<a href="alex.antemann@example.mail">alex.antemann@example.mail</a>
-			</p>
-			<p style="word-break: none;">
-				Ich beherrsche:
-				<br>
-				<i class="em em-de" aria-role="presentation" aria-label="Germany Flag"></i>&nbsp;&nbsp;<i class="em em-fr" aria-role="presentation" aria-label="France Flag"></i> &nbsp;&&nbsp; <i class="em em-gb" aria-role="presentation" aria-label="United Kingdom Flag"></i>
-			</p>
-			</div>
-			
-			
-			
+
+			<footer>
+				<p>
+					Schreib mir:
+					<br>
+					<a href="alex.antemann@example.mail">alex.antemann@example.mail</a>
+				</p>
+				<p>
+					Ich beherrsche:
+					<br>
+					<span class="tooltip">
+						<i class="em em-de" aria-role="presentation" aria-label="Germany Flag"></i>
+						<span class="tooltiptext">Muttersprache</span>
+					</span>&nbsp;&nbsp;
+					<span class="tooltip">
+						<i class="em em-fr" aria-role="presentation" aria-label="France Flag"></i>
+						<span class="tooltiptext">Muttersprache</span>
+					</span>&nbsp;&&nbsp;
+					<span class="tooltip">
+						<i class="em em-gb" aria-role="presentation" aria-label="United Kingdom Flag"></i>
+						<span class="tooltiptext">als LK im ABI</span>
+					</span>
+				</p>
+			</footer>
+
 		</section>
-		
+
 	</main>
-	
-	
+
+
 	<dialog id="popup">
 		<a href="#" id="popup-close">&#x1F5D9;</a>
 		<a href="#" id="prev">&#x2039;</a>

@@ -84,7 +84,11 @@ function updatePopupState() {
 		iframe.contentWindow.location.replace(h.substring(2));
 		popup.showModal();
 	}
+	else if(h.startsWith("#")) {
+		document.getElementById(h.substring(1))?.scrollIntoView();
+	}
 }
+
 window.addEventListener('popstate', updatePopupState);
 
 popup.addEventListener("close", (event) => {
@@ -97,8 +101,13 @@ updatePopupState();
 /* section tracking / menu animation */
 
 const main = document.querySelector("main");
+const sections= main.querySelectorAll("section");
 const menu = document.getElementById("menu");
 const alex = document.getElementById("alex");
+const mybutton = document.getElementById("button-scroll");
+const menuColor = document.getElementById("nav");
+
+
 const visibleIds= {}
 
 const sectionObserver = new IntersectionObserver(
@@ -106,19 +115,45 @@ const sectionObserver = new IntersectionObserver(
 		for (const entry of entries) {
 			visibleIds[entry.target.id]= entry.isIntersecting;
 		}
-		let firstVisibleId= Array.prototype.find.call(main.children,section=>visibleIds[section.id])?.id;
+		let firstVisibleId= Array.prototype.find.call(sections,section=>visibleIds[section.id])?.id;
 		for(const link of menu.children) {
 			link.classList.toggle("current-section", link.href.endsWith('#'+firstVisibleId));
 		}
 		alex.classList.toggle("visible",firstVisibleId!=="home");
+
+
+		if (firstVisibleId === "home") {
+			mybutton.style.opacity = "0%";
+			mybutton.style.transform = "translateY(50px)";
+			menuColor.style.backgroundColor = "transparent";
+		  } else {
+			mybutton.style.opacity = "100%";
+			mybutton.style.transform = "translateY(0px)";
+			menuColor.style.backgroundColor = "var(--bg-color)";
+		  }
+
+
+
 	},
 	{root:main, rootMargin:"-25% 0px 0px 0px"}
 );
 
-for(const section of main.children) {
+for(const section of sections) {
 	sectionObserver.observe(section)
 }
 
 /* trick to give time to download fonts */
 
 setTimeout(()=>(document.body.style.opacity=null),200)
+
+
+
+
+
+
+// When the user clicks on the button, scroll to the top of the <main> element
+mybutton.addEventListener("click", backToTop);
+
+function backToTop() {
+  mainElement.scrollTop = 0;
+}

@@ -99,3 +99,11 @@ body#detail {
 	}
 }
 
+:root:has(body.dark) {
+	filter: contrast(80%) invert(100%) hue-rotate(180deg);
+
+	img, i.em, iframe {
+		filter: hue-rotate(180deg) invert(100%) brightness(1.15);
+	}
+}
+

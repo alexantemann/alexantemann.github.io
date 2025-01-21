@@ -176,7 +176,7 @@ const sectionObserver = new IntersectionObserver(
 		}
 		document.body.dataset.section= firstVisibleId;
 	},
-	{root:main, rootMargin:"-15% 0px 0px 0px"}
+	{root:main, rootMargin:"-20% 0px 0px 0px"}
 );
 
 window.addEventListener("DOMContentLoaded",()=>{
@@ -207,5 +207,5 @@ main.addEventListener("click",ev=>{
 //----------- trick to give time to download fonts
 // TODO replace with anim in css
 
-setTimeout(()=>(document.body.style.opacity=null),200)
+//setTimeout(()=>(document.body.style.opacity=null),200)
 

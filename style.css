@@ -382,7 +382,7 @@ section:first-of-type {
 	background-size: auto; /* Adjust size if necessary */
 	position: relative;
 	z-index: 2;
-	padding-top: 3rem;
+	padding-top: max(1vw, calc(49vw - 900px));
 	bottom: 3rem;
 	
 	display: flex;
@@ -758,6 +758,10 @@ label:has(#dark-mode) {
 	body:has(#menu>a[href="#home"].current) {
 		main > header {
 			transform: translateY(0px);
+		}
+
+		section:first-of-type {
+			padding-top: 3rem;
 		}
 	}
 	

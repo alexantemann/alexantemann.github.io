@@ -1,3 +1,4 @@
+"use strict"
 
 //----------- masonry
 /*
@@ -100,7 +101,7 @@ const filterLinkByHash= Array.prototype.reduce.call(
 	new Map()
 );
 
-let currentFilteLink= filterLinkByHash.get(filter= "all");
+let currentFilteLink= filterLinkByHash.get("all");
 
 function updateFilter(filter) {
 	let newLink= (filterLinkByHash.get(filter)??filterLinkByHash.get(filter= "all"));
@@ -115,8 +116,8 @@ function updateFilter(filter) {
 	gallery.classList.add("swipe-out");
 }
 
-gallery.addEventListener('transitionend', (ev)=>{
-		console.log(ev)
+gallery.addEventListener("transitionend", (ev)=>{
+		if(ev.target!==gallery) return;
 		if(gallery.classList.contains("swipe-out")) {
 			updateFilter2();
 		}
@@ -148,10 +149,15 @@ function updateFilter2() {
 }
 
 //----------- dark mode
-
+const parseBool=s=>s==="true"?true:s=="false"?false:undefined;
 const darkMode= document.getElementById("dark-mode");
-darkMode.checked= window.matchMedia("(prefers-color-scheme: dark)").matches;
+darkMode.checked= parseBool(localStorage.getItem("dark-mode")) ?? window.matchMedia("(prefers-color-scheme: dark)").matches;
 
+darkMode.addEventListener("change",()=>{
+		let systemDarkMode= window.matchMedia("(prefers-color-scheme: dark)").matches;
+		if(systemDarkMode===darkMode.checked) localStorage.removeItem("dark-mode");
+		else localStorage.setItem("dark-mode",darkMode.checked);
+	})
 
 //----------- popup
 
@@ -220,6 +226,12 @@ window.addEventListener('popstate',()=>{
 let scrollToElt;
 
 window.addEventListener("load",()=>{
+	const t= `moc.liam${"g@"}nnametna.xela`.split("").reverse().join("")
+	for(let a of document.querySelectorAll(`a[href='ma${"ilt"}o:']`)) {
+		a.href+= t;
+		a.innerHTML= t;
+	}
+
 	let h= window.location.hash;
 	if(h.startsWith("#+")) {
 		openDetail();

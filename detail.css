@@ -86,9 +86,9 @@ body#detail {
 	    margin: 0;
 	}
 	figcaption {
+        opacity: 0.70;
 		font-style:italic;
 	    font-size: 70%;
-		opacity: 0.70;
 	}
 
 	p.tags { /*Tags*/

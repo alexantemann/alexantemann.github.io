@@ -14,14 +14,19 @@
 	}
 }
 
+:root {
+	--bg-color: #f2f2f2;
+    --text-color: #0c0c0c;
+    --bg-invert: rgba(0, 0, 0, 0.877);	
+	--dim-color: #888;
+}
+
 body#detail {
-	--bg-color: #f3f3f3;
-    --text-bg-color: #0c0c0c;
 	
     font-family: "Montserrat", sans-serif;
 	font-size: clamp(1.1rem,3vw,1.5rem);
-    background-color: #f2f2f2;
-    color: #0c0c0c;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 	
 	max-width:1024px;
 	
@@ -45,12 +50,12 @@ body#detail {
 
 	::-moz-selection { /* Code for Firefox */
 		color: var(--bg-color);
-		background: rgba(0, 0, 0, 0.877);
+		background: var(--bg-invert);
 	  }
 	  
 	  ::selection {
 		color: var(--bg-color);
-		background: rgba(0, 0, 0, 0.877);
+		background: var(--bg-invert);
 	  }
 
 
@@ -65,7 +70,7 @@ body#detail {
 		aspect-ratio: 16 / 9;
 		display: block;
 		margin: 20px auto;
-		border: 0px solid var(--text-bg-color);
+		border: 0px solid var(--text-color);
 		border-radius: 0px;
 		height: min(50dvw,500px);
 	}
@@ -81,9 +86,9 @@ body#detail {
 	    margin: 0;
 	}
 	figcaption {
-	    color: #555;
 		font-style:italic;
 	    font-size: 70%;
+		opacity: 0.70;
 	}
 
 	p.tags { /*Tags*/
@@ -106,15 +111,19 @@ body#detail {
 	}
 
 	a {
-		color: var(--text-bg-color);
+		color: var(--text-color);
 	}
 }
 
 :root:has(body.dark) {
-	filter: contrast(80%) invert(100%) hue-rotate(180deg);
-
-	img, i.em, iframe {
-		filter: hue-rotate(180deg) invert(100%) brightness(1.15);
+	--bg-color: #222;
+    --text-color: #fafafa;
+    --bg-invert: rgba(255, 255, 255, 0.877);
+	
+	scrollbar-color: var(--dim-color) var(--bg-color);
+	
+	html,body {
+		scrollbar-color: var(--dim-color) var(--bg-color);
 	}
 }
 

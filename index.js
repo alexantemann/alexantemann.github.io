@@ -1,6 +1,6 @@
 
 //----------- masonry
-
+/*
 const VRES= 5; // rem: must match css grid-template-rows TODO? read css
 const VGAP= 40;
 const gallery= document.getElementById("gallery");
@@ -31,6 +31,65 @@ function checkMasonry() {
 
 new ResizeObserver(checkMasonry).observe(gallery);
 window.addEventListener("load",checkMasonry);
+*/
+
+const parsePx= px=>parseFloat(px);
+const gallery= document.getElementById('gallery');
+let slowTime= 0;
+
+let updatingMasonry= false;
+function updateMasonry() {
+		gallery.classList.remove("swipe-out");
+	//return;
+    const gridComputedStyle = window.getComputedStyle(gallery);
+    const rgap= parsePx(gridComputedStyle.getPropertyValue("grid-row-gap"));
+    const cgap= parsePx(gridComputedStyle.getPropertyValue("grid-column-gap"));
+    const cols= gridComputedStyle.getPropertyValue("grid-template-columns").split(" ");
+    for(let i= 0; i<cols.length; ++i) cols[i]= parsePx(cols[i]) + cgap + (i ? cols[i-1]:0);
+    const colHeights= cols.map(()=>0)
+
+    const now= performance.now();
+
+    for(let cell of gallery.children) {
+        if(cell.hidden) continue;
+        const h= cell.getBoundingClientRect().height;
+        let hi= 0;
+        for(let j= hi; ++j<colHeights.length;) if(colHeights[j]<colHeights[hi]) hi= j;
+				//const prevTop= parsePx(cell.style.marginTop);
+        //const prevLeft= parsePx(cell.style.left);
+        cell.style.marginTop= colHeights[hi]+"px";
+        const left= hi==0 ? 0 : cols[hi-1];
+				/*
+        const diff= Math.max(Math.abs(left-prevLeft),Math.abs(colHeights[hi]-prevTop));
+				if(!cell.style.left) { // was hidden
+            cell.style.transitionDuration= "0s";
+				}
+				else if(diff>50) {
+            slowTime= performance.now()
+            cell.style.transitionDuration= "";
+        }
+				else if(now-slowTime>500 && cell.style.transitionDuration!=="0s") {
+            cell.style.transitionDuration= "0s";
+        }
+				*/
+        cell.style.left= `${left}px`;
+        colHeights[hi]+= rgap + h;
+    }
+		updatingMasonry= false;
+		/*
+		scrollToElt && setTimeout(()=>{
+					scrollToElt.scrollIntoView();
+					scrollToElt= undefined;
+			},200)
+		*/
+}
+
+const deferUpdateMasonry= ()=>{
+	if(updatingMasonry) return;
+	updatingMasonry= true;
+	requestAnimationFrame(updateMasonry);
+}
+new ResizeObserver(deferUpdateMasonry).observe(gallery);
 
 //----------- filter
 
@@ -44,20 +103,48 @@ const filterLinkByHash= Array.prototype.reduce.call(
 let currentFilteLink= filterLinkByHash.get(filter= "all");
 
 function updateFilter(filter) {
-	let scrollY= main.scrollTop;
-	currentFilteLink?.classList.remove("current");
-	currentFilteLink= (filterLinkByHash.get(filter)??filterLinkByHash.get(filter= "all"));
+	let newLink= (filterLinkByHash.get(filter)??filterLinkByHash.get(filter= "all"));
+	if(currentFilteLink===newLink) {
+		gallery.scrollIntoView();
+		return;
+	}
+	currentFilteLink.classList.remove("current");
+	currentFilteLink= newLink;
 	currentFilteLink.classList.add("current");
 
+	gallery.classList.add("swipe-out");
+}
+
+gallery.addEventListener('transitionend', (ev)=>{
+		console.log(ev)
+		if(gallery.classList.contains("swipe-out")) {
+			updateFilter2();
+		}
+});
+
+function updateFilter2() {
+	const filter= currentFilteLink.getAttribute("href").substring(2);
+
+	let scrollY= main.scrollTop;
+
 	for(const item of gallery.children) {
-		item.hidden = filter !== "all" &&
+		if(!item.hidden) {
+			item.style.animation= "none";
+		}
+		item.hidden= filter !== "all" &&
 			!Array.prototype.find.call(
 				item.querySelectorAll("span.tag"),
 				(span) => span.innerText===filter
 			);
+		if(item.hidden) {
+			item.style.left= "";
+			item.style.marginTop= "";
+			item.style.animation= "";
+		}
 	}
 	main.scrollTop= scrollY;
-	gallery.scrollIntoView({behavior: 'smooth'});
+	gallery.scrollIntoView(/*{behavior:"instant"}*/);
+	updateMasonry();
 }
 
 //----------- dark mode
@@ -103,7 +190,7 @@ popup.addEventListener("close", (ev) => {
 });
 
 function openDetail() {
-		const hrefs= Array.prototype.map.call(gallery.querySelectorAll("div:not([hidden]) > a"),e=>e.href);
+		const hrefs= Array.prototype.map.call(gallery.querySelectorAll("a:not([hidden])"),e=>e.href);
 		const i= hrefs.indexOf(window.location.toString());
 		prevLink.hidden= i===0;
 		if(i>0) {
@@ -120,19 +207,6 @@ function openDetail() {
 
 //----------- url hash
 
-function onLocationChange(ev) {
-	let h= window.location.hash;
-	console.log("onLocationChange",{ev,h})
-	if(!h.startsWith("#+")) {
-		popup.close();
-		if(h.startsWith("#-")) updateFilter(h.substring(2));
-		else document.getElementById(h.substring(1))?.scrollIntoView({behavior: 'smooth'});
-	}
-	else {
-		openDetail();
-	}
-}
-
 window.addEventListener('popstate',()=>{
 	let h= window.location.hash;
 	if(h.startsWith("#+")) {
@@ -143,6 +217,8 @@ window.addEventListener('popstate',()=>{
 	}
 });
 
+let scrollToElt;
+
 window.addEventListener("load",()=>{
 	let h= window.location.hash;
 	if(h.startsWith("#+")) {
@@ -150,8 +226,11 @@ window.addEventListener("load",()=>{
 	}
 	else {
 		if(h.startsWith("#-")) updateFilter(h.substring(2));
-		else document.getElementById(h.substring(1))?.scrollIntoView({behavior: 'smooth'});
-		window.location.replace("#");
+		else {
+			scrollToElt= document.getElementById(h.substring(1))
+			scrollToElt?.scrollIntoView(/*{behavior:"instant"}*/)
+		}
+		window.location.replace("#")
 	}
 });
 
@@ -179,11 +258,13 @@ const sectionObserver = new IntersectionObserver(
 	{root:main, rootMargin:"-20% 0px 0px 0px"}
 );
 
+
 window.addEventListener("DOMContentLoaded",()=>{
 		for(const section of sections) {
 			sectionObserver.observe(section)
 		}
 });
+
 
 //----------- local navigation override
 
@@ -200,7 +281,7 @@ main.addEventListener("click",ev=>{
 	else if(!link.startsWith("#+")) {
 		ev.preventDefault();
 		let anchor= document.getElementById(link.substring(1));
-		anchor?.scrollIntoView({behavior: 'smooth'});
+		anchor?.scrollIntoView(/*{behavior:"instant"}*/);
 	}
 })
 

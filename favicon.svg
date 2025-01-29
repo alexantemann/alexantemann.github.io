@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: black; /* Default for light mode */
+        stroke-miterlimit: 10;
+        stroke-width: 29.63px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .cls-1 {
+          stroke: white; /* Switch to white in dark mode */
+        }
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="m71.5,214.68v-94.42s-2.11-65.78,56.49-65.78"/>
+  <path class="cls-1" d="m184.4,214.68v-94.42s2.11-65.78-56.49-65.78"/>
+  <line class="cls-1" x1="71.49" y1="136.17" x2="184.4" y2="136.17"/>
+</svg>

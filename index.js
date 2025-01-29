@@ -144,7 +144,7 @@ function updateFilter2() {
 		}
 	}
 	main.scrollTop= scrollY;
-	gallery.scrollIntoView(/*{behavior:"instant"}*/);
+	gallery.scrollIntoView({behavior:"smooth"});
 	updateMasonry();
 }
 
@@ -293,7 +293,7 @@ main.addEventListener("click",ev=>{
 	else if(!link.startsWith("#+")) {
 		ev.preventDefault();
 		let anchor= document.getElementById(link.substring(1));
-		anchor?.scrollIntoView(/*{behavior:"instant"}*/);
+		anchor?.scrollIntoView({behavior:"smooth"});
 	}
 })
 

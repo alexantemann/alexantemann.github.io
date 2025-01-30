@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 
@@ -16,54 +16,53 @@
 
 :root {
 	--bg-color: #f2f2f2;
-    --text-color: #0c0c0c;
-    --bg-invert: rgba(0, 0, 0, 0.877);	
+	--text-color: #0c0c0c;
+	--bg-invert: rgba(0, 0, 0, 0.877);	
 	--dim-color: #888;
+}
+
+::-moz-selection { /* Code for Firefox */
+	color: var(--bg-color);
+	background: var(--bg-invert);
+}
+
+::selection {
+	color: var(--bg-color);
+	background: var(--bg-invert);
 }
 
 body#detail {
 	
-    font-family: "Montserrat", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: clamp(1.1rem,3vw,1.5rem);
-    background-color: var(--bg-color);
-    color: var(--text-color);
+	background-color: var(--bg-color);
+	color: var(--text-color);
 	
 	max-width:1024px;
 	
-    margin: 0 auto;
-    padding-top: 0;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 1rem;
-
+	margin: 0 auto;
+	padding-top: 0;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 1rem;
+	
 	align-content: center;
-    text-align: center;
-
+	text-align: center;
+	
 	opacity: 0;
 	animation: fadeIn 0.4s ease-in 0.1s forwards;
 	
 	h1 {
-	    text-transform: capitalize;
+		text-transform: capitalize;
 		font-size: clamp(20px,5vw,40px);
-	    font-weight: 500;
-	}
-
-	::-moz-selection { /* Code for Firefox */
-		color: var(--bg-color);
-		background: var(--bg-invert);
-	  }
-	  
-	  ::selection {
-		color: var(--bg-color);
-		background: var(--bg-invert);
-	  }
-
-
+		font-weight: 500;
+	}	
+	
 	img {
-	    display: block;
-	    margin: 1rem auto;
-	    max-width:100%;
-	    max-height: 100%;
+		display: block;
+		margin: 1rem auto;
+		max-width:100%;
+		max-height: 100%;
 	}
 	
 	iframe {
@@ -74,34 +73,34 @@ body#detail {
 		border-radius: 0px;
 		height: min(50dvw,500px);
 	}
-
+	
 	h1 + * img {
-	    max-height: 75dvh;
+		max-height: 75dvh;
 	}
 	h1 + iframe {
 		max-height: 75dvh;
 	}
-
+	
 	figure {
-	    margin: 0;
+		margin: 0;
 	}
 	figcaption {
-        opacity: 0.70;
+		opacity: 0.70;
 		font-style:italic;
-	    font-size: 70%;
+		font-size: 70%;
 	}
-
+	
 	p.tags { /*Tags*/
-	    font-family: "Libre Baskerville", serif;
-	    font-size: 70%;
-	    margin: 1rem 0;
-	    opacity: 0.70;
-	    padding-left: 10%;
-	    padding-right: 10%;
+		font-family: "Libre Baskerville", serif;
+		font-size: 70%;
+		margin: 1rem 0;
+		opacity: 0.70;
+		padding-left: 10%;
+		padding-right: 10%;
 	}
-
+	
 	details {
-	    margin: 1rem 0;		
+		margin: 1rem 0;		
 	}
 	summary {
 		cursor:pointer;
@@ -109,7 +108,7 @@ body#detail {
 	details > p {
 		margin-top:0.5rem;
 	}
-
+	
 	a {
 		color: var(--text-color);
 	}
@@ -117,8 +116,8 @@ body#detail {
 
 :root:has(body.dark) {
 	--bg-color: #222;
-    --text-color: #fafafa;
-    --bg-invert: rgba(255, 255, 255, 0.877);
+	--text-color: #fafafa;
+	--bg-invert: rgba(255, 255, 255, 0.877);
 	
 	scrollbar-color: var(--dim-color) var(--bg-color);
 	
